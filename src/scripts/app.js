@@ -43,7 +43,7 @@ var app = function() {
   		showMultiView: function() {
 
   			var homeInstance = new MultiCollection()
-  			var promise = homeInstance.fetch({
+  			homeInstance.fetch({
 
   					// dataType: 'jsonp',
   					data: {
@@ -67,17 +67,17 @@ var app = function() {
 				"nameStartsWith": query
 			}
 		})
-
-		promise.then(() => {
-			ReactDOM.render(<SearchResultsPage multiCollection={characterInstance} />, document.querySelector('.container'))
+			promise.then(function() {
+				ReactDOM.render(<SearchResultsPage multiCollection={characterInstance} />, document.querySelector('.container'))
 			})
+			
 
-  		},
+	},
 
   		showSingleView: function(id) {
 
   			var singleInstance = new SingleModel()
-  			// singleInstance.url += id + '.js'
+  			singleInstance.url += "/" + id 
   			var promise = singleInstance.fetch({
 
   					// dataType: 'jsonp',
@@ -86,10 +86,12 @@ var app = function() {
   					}
   			})
 
-  			promise.then(() => {
+  			promise.then(function() {
 
   				ReactDOM.render(<DetailsPage singleModel={singleInstance} />, document.querySelector('.container'))
+
   			})
+  			
   		},
 
   })

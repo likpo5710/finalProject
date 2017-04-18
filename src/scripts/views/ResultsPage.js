@@ -6,8 +6,8 @@ import $ from 'jquery'
 var SearchResultsPage = React.createClass({
 
 	handleClick: function(eventObj) {
-		eventObj.preventDefault();
 		console.log('The link was clicked');
+		location.hash = "details/"
 	},
 	
 	render: function() {
@@ -43,8 +43,10 @@ var Hero = React.createClass({
 		// compose a string that looks like '#details/WHATEVER THE ID IS' : complete
 		// console.log that string, verifying that you're creating a 
 			// unique details href for each hero : complete
-		// var detailsLink = `${this.props.heroModel.get('urls')[0].url}`
-		var detailsLink = '#details/' + `${this.props.heroModel.get('id')}`;
+		//var detailsLink = `${this.props.heroModel.get('urls')[1].url}`
+		var detailsLink = '#details/' + this.props.heroModel.get('id');
+		
+		//var detailsWithStringInterpolation = `#details/${this.props.heroModel.get('id')}`
 		return (
 			<div>
 				<a href={detailsLink} onClick={this.handleClick}>

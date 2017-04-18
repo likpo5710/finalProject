@@ -16,7 +16,11 @@ h3 {
 
 img {
 	height: 70px;
-	display: inline-block;
+	text-align: center;
+}
+
+input {
+	border-radius: 20px;
 }
 
 .banner {
@@ -31,3 +35,4 @@ img {
 .searchBox {
 	text-align: left;
 }
+

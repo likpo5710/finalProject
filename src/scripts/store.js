@@ -7,7 +7,7 @@ const STORE = Object.assign({}, Backbone.Events, {
 	},
 
 	get: function(prop) {
-		//parameter prop meaning property of the object model
+		//parameter 'prop' meaning property of the object model
 		if (this.data[prop] === undefined) {
 			throw new Error('the store doesn\'t have a property called ' + prop)
 		}

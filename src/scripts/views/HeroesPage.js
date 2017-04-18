@@ -1,13 +1,12 @@
 import React from 'react'
 import Banner from './components/banner'
-import SearchResultsPage from './ResultsPage'
 
 var HeroesPage = React.createClass({
 
-	handleClick: function(eventObj) {
-		eventObj.preventDefault();
-		console.log('The link was clicked');
-	},
+	// handleClick: function(eventObj) {
+		
+	// 	location.hash = "details/"
+	// },
 
 	componentWillMount: function() {
 		this.props.multiCollection.on('sync', () => {
@@ -24,11 +23,12 @@ var HeroesPage = React.createClass({
 	},
 
 	render: function() {
+		console.log('this is the home page')
 		console.log(this.props.multiCollection)
 		return (
 			<div className="HeroesPage">
 				<Banner />
-				<h1>Marvel Superheroes</h1>
+				<h1>Marvel Characters</h1>
 				<Heroes collection={this.state.multiCollection} />
 			</div>
 		)
@@ -54,24 +54,24 @@ var Heroes = React.createClass({
 })
 
 var Hero = React.createClass({
-	// need to get the pictures to render. JUSTIN!!!!
+
 	render: function() {
-		console.log(this.props.heroModel)
-		var imgSrc = `${this.props.heroModel.get('thumbnail').path}.${this.props.heroModel.get('thumbnail').extension}`;
+		var imgSrc = `${this.props.heroModel.get('thumbnail').path}/portrait_uncanny.${this.props.heroModel.get('thumbnail').extension}`;
+		//var detailsLink = `${this.props.heroModel.get('urls')[1].url}`
 		var detailsLink = '#details/' + `${this.props.heroModel.get('id')}`;
 		return (
-			<div>
-				<a href={detailsLink} onClick={this.handleClick}>
-				<img src={imgSrc} />
-				<h3>{this.props.heroModel.get('name')}</h3>
-				</a>
-			</div>
+			<a href={detailsLink}>
+				<div>
+					<img src={imgSrc} />
+					<h3>{this.props.heroModel.get('name')}</h3>
+				</div>
+			</a>
 		)
 	}
 })
 
 
-// define hero compoentn in another file
+// define hero component in another file
 // export it
 
 // import it into both resultspage and heroes page

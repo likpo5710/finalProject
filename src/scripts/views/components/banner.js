@@ -13,12 +13,8 @@ var Banner = React.createClass({
 	render: function() {
 		return (
 			<div className="banner">
-				<div className="title">
-					<h1>Project Title</h1>
-				</div>
-				<div className="searchBox">
-					<input type="text" onKeyDown={this.handleSearch} placeholder="search character" name="characterSearch" />
-				</div>
+					<h2><a href="#home">Marvelus</a></h2>
+					<input type="text" onKeyDown={this.handleSearch} placeholder=" search character" name="characterSearch" />
 			</div>
 		)
 	}
