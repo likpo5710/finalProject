@@ -45,12 +45,13 @@ var Hero = React.createClass({
 			// unique details href for each hero : complete
 		//var detailsLink = `${this.props.heroModel.get('urls')[1].url}`
 		var detailsLink = '#details/' + this.props.heroModel.get('id');
-		
+		var imgSrc = `${this.props.heroModel.get('thumbnail').path}/portrait_medium.${this.props.heroModel.get('thumbnail').extension}`;
 		//var detailsWithStringInterpolation = `#details/${this.props.heroModel.get('id')}`
 		return (
-			<div>
+			<div className="characterDiv">
 				<a href={detailsLink} onClick={this.handleClick}>
-				<h3>{this.props.heroModel.get('name')}</h3>
+					<img src={imgSrc} />
+					<h3>{this.props.heroModel.get('name')}</h3>
 				</a>
 			</div>
 		)

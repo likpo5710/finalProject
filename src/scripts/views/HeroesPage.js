@@ -28,7 +28,7 @@ var HeroesPage = React.createClass({
 		return (
 			<div className="HeroesPage">
 				<Banner />
-				<h1>Marvel Characters</h1>
+				<h1 className="viewTitle">Marvel Characters</h1>
 				<Heroes collection={this.state.multiCollection} />
 			</div>
 		)
@@ -56,12 +56,12 @@ var Heroes = React.createClass({
 var Hero = React.createClass({
 
 	render: function() {
-		var imgSrc = `${this.props.heroModel.get('thumbnail').path}/portrait_uncanny.${this.props.heroModel.get('thumbnail').extension}`;
+		var imgSrc = `${this.props.heroModel.get('thumbnail').path}/portrait_medium.${this.props.heroModel.get('thumbnail').extension}`;
 		//var detailsLink = `${this.props.heroModel.get('urls')[1].url}`
 		var detailsLink = '#details/' + `${this.props.heroModel.get('id')}`;
 		return (
 			<a href={detailsLink}>
-				<div>
+				<div className="characterDiv">
 					<img src={imgSrc} />
 					<h3>{this.props.heroModel.get('name')}</h3>
 				</div>
