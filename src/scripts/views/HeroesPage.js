@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from './components/banner'
+import Footer from './components/footer'
 
 var HeroesPage = React.createClass({
 
@@ -30,6 +31,7 @@ var HeroesPage = React.createClass({
 				<Banner />
 				<h1 className="viewTitle">Marvel Characters</h1>
 				<Heroes collection={this.state.multiCollection} />
+				<Footer />
 			</div>
 		)
 	}

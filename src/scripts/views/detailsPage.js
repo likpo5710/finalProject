@@ -1,6 +1,7 @@
 import React from 'react'
 import Banner from './components/banner'
 import Details from './details'
+import Footer from './components/footer'
 
 var DetailsPage = React.createClass({
 
@@ -9,6 +10,7 @@ var DetailsPage = React.createClass({
 			<div className="detailsPage">
 				<Banner />
 				<Details collection={this.props.singleModel} />
+				<Footer />
 			</div>
 		)
 	}

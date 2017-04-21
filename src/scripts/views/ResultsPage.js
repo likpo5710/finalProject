@@ -1,5 +1,6 @@
 import React from 'react'
 import Banner from './components/banner'
+import Footer from './components/footer'
 
 import $ from 'jquery'
 
@@ -15,6 +16,7 @@ var SearchResultsPage = React.createClass({
 				<div className="searchListings">
 					<Banner />
 					<HeroCollection collection={this.props.multiCollection} />
+					<Footer />
 				</div>
 			)
 		}
@@ -30,7 +32,7 @@ var HeroCollection = React.createClass({
 
 	render: function() {
 		return (
-			<div>
+			<div className="resultspage">
 				{this.props.collection.map(this.makeHeroes)}
 			</div>
 		)
@@ -51,6 +53,8 @@ var Hero = React.createClass({
 			<div className="characterDiv">
 				<a href={detailsLink} onClick={this.handleClick}>
 					<img src={imgSrc} />
+				</a>
+				<a href={detailsLink} onClick={this.handleClick}>
 					<h3>{this.props.heroModel.get('name')}</h3>
 				</a>
 			</div>

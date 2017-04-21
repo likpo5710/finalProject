@@ -3,19 +3,20 @@ import React from 'react'
 var Details = React.createClass({
 	render: function() {
 		console.log(this.props.collection)
-		var imgSrc = `${this.props.collection.get('0').thumbnail.path}/portrait_medium.${this.props.collection.get('0').thumbnail.extension}`;
+		var infoLink = `${this.props.collection.get('0').urls[1].url}`;
+		var imgSrc = `${this.props.collection.get('0').thumbnail.path}/portrait_fantastic.${this.props.collection.get('0').thumbnail.extension}`;
 		return (
 			<div className="content-container">
 				<div className="detail-container">
 					<div className="img-container">
 						<div className="info-container">
-							<h4 className="detail-name"><i>{this.props.collection.get('0').name}</i></h4>
+							<a href={infoLink}><h4 className="detail-name"><i>{this.props.collection.get('0').name}</i></h4></a>
+							<img src={imgSrc} />
 							<p className="detail-description">{this.props.collection.get('0').description}</p>
 						</div>
-						<img src={imgSrc} />
-						<p><b>Comic Book Appearances:</b></p>
+						<p className="comics"><b>Comic Book Appearances:</b></p>
 						<ComicsBooks model={this.props.collection} />
-						<p><b>Events:</b></p>
+						<p className="events"><b>Crossover affairs within the Marvel Universe:</b></p>
 						<Events model={this.props.collection} />
 					</div>
 				</div>
