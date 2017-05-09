@@ -5,6 +5,7 @@ var Details = React.createClass({
 		console.log(this.props.collection)
 		var infoLink = `${this.props.collection.get('0').urls[1].url}`;
 		var imgSrc = `${this.props.collection.get('0').thumbnail.path}/portrait_fantastic.${this.props.collection.get('0').thumbnail.extension}`;
+		// var comicsLink = `https://readcomiconline.to`;
 		return (
 			<div className="content-container">
 				<div className="detail-container">
@@ -14,7 +15,7 @@ var Details = React.createClass({
 							<img src={imgSrc} />
 							<p className="detail-description">{this.props.collection.get('0').description}</p>
 						</div>
-						<p className="comics"><b>Comic Book Appearances:</b></p>
+						<p className="comics"><a><b>Comic Book Appearances:</b></a></p>
 						<ComicsBooks model={this.props.collection} />
 						<p className="events"><b>Crossover affairs within the Marvel Universe:</b></p>
 						<Events model={this.props.collection} />
